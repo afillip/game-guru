@@ -1,13 +1,11 @@
 import { Component, h } from '@stencil/core';
 
-
 @Component({
   tag: 'app-root',
-  styleUrl: 'app-root.css',
+  styleUrl: 'app-root.scss',
   shadow: true
 })
 export class AppRoot {
-
   render() {
     return (
       <div>
@@ -18,9 +16,10 @@ export class AppRoot {
         <main>
           <stencil-router>
             <stencil-route-switch scrollTopOffset={0}>
-              <stencil-route url='/' component='app-home' exact={true} />
-              <stencil-route url='/profile/:name' component='app-profile' />
-              <stencil-route url='/profile' component='app-profile' />
+              <stencil-route url="/" component="app-home" exact={true} />
+              <stencil-route url="/profile" component="app-profile" exact={true} />
+              <stencil-route url="/profile/" component="app-profile" exact={true} />
+              <stencil-route url="/profile/:name" component="app-profile" />
             </stencil-route-switch>
           </stencil-router>
         </main>

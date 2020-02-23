@@ -1,5 +1,7 @@
+@import "../../global/variables";
+
 header {
-  background: #5851ff;
+  background: $stencil-purple;
   color: white;
   height: 56px;
   display: flex;
