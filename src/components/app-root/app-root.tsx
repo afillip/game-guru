@@ -6,6 +6,14 @@ import { Component, h } from '@stencil/core';
   shadow: true
 })
 export class AppRoot {
+
+  constructor() {
+
+    this.test();
+   
+
+  }
+
   render() {
     return (
       <div>
@@ -25,5 +33,18 @@ export class AppRoot {
         </main>
       </div>
     );
+  }
+
+  public async test(): Promise<void> {
+
+    let response = await fetch('//localhost:3000/api/say-hello/Amanda', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    let responseBody = await response.json();
+
+    console.log(responseBody);
   }
 }
