@@ -7,6 +7,10 @@ import { MatchResults } from '@stencil/router';
   shadow: true
 })
 export class AppProfile {
+
+  constructor() {
+  }
+
   @Prop() match: MatchResults;
 
   normalize(name: string): string {
@@ -26,6 +30,10 @@ export class AppProfile {
           </p>
         </div>
       );
+    } else {
+      return (
+        <h1>pickles</h1>
+      )
     }
   }
 }
