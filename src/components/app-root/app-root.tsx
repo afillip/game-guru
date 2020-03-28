@@ -37,7 +37,7 @@ export class AppRoot {
 
   public async test(): Promise<void> {
 
-    let response = await fetch('//localhost:3000/api/say-hello/Amanda', {
+    let response = await fetch('http://localhost:3000/api/games', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
