@@ -19,6 +19,7 @@ log.txt
 .versions/
 node_modules/
 $RECYCLE.BIN/
+credentials.json
 
 .DS_Store
 Thumbs.db
