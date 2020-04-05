@@ -1,6 +1,11 @@
-import { IBoardGame } from '../interfaces/IBoardGame';
+import { IBoardGame } from '../../contracts/interfaces/IBoardGame';
+import { BoardGameKind } from '../../contracts/enums/BoardGameKindEnum';
+import { BoardGameInteraction } from '../../contracts/enums/BoardGameInteractionEnum';
+import { GameModelToIndexRefEnum } from '../enums/GameModelToIndexRefEnum';
 
 export class BoardGame implements IBoardGame {
+
+    id: string;
 
     name: string;
     
@@ -10,31 +15,54 @@ export class BoardGame implements IBoardGame {
 
     description: string;
 
+    teacherNotes: string;
+
     version: string;
 
-    // eg: hidden movement, deck building, drafting etc.... maybe we have this as an enum
-    kind: string;
+    kind: BoardGameKind[];
 
     releaseDate: Date;
 
-    photo: string;
+    photos: string[];
 
     linkToRules: string;
 
     linkToYoutube: string;
     
-    // this could potentially be a link to another Board Game object or just a url or whatever
     expansion: boolean;
 
-    // minutes -> maybe have complex object containing duration for new player, learning etc
-    duration: number;
+    avgDuration: number;
 
-    // potentially an enum -> coop, comptetitive, team, traitor
-    playerInteraction: string;
+    firstPlaythroughDuration: number;
+
+    playerInteraction: BoardGameInteraction;
 
     publisher: string;
 
     constructor() {
 
     }
+
+    public hydrateFromListValueArray(listValue: any[]) {
+
+        this.id = listValue[GameModelToIndexRefEnum.id];
+        this.name = listValue[GameModelToIndexRefEnum.name];
+        this.minNumPlayers = listValue[GameModelToIndexRefEnum.minNumPlayers];
+        this.maxNumPlayers = listValue[GameModelToIndexRefEnum.maxNumPlayers];
+        this.expansion = listValue[GameModelToIndexRefEnum.expansion];
+        this.description = listValue[GameModelToIndexRefEnum.description];
+        this.teacherNotes = listValue[GameModelToIndexRefEnum.teacherNotes]
+        this.version = listValue[GameModelToIndexRefEnum.version];
+        this.kind = listValue[GameModelToIndexRefEnum.kind].split(',');
+        this.releaseDate = listValue[GameModelToIndexRefEnum.releaseDate];
+        this.photos = listValue[GameModelToIndexRefEnum.photos].split(',');
+        this.linkToRules = listValue[GameModelToIndexRefEnum.linkToRules];
+        this.linkToYoutube = listValue[GameModelToIndexRefEnum.linkToYoutube];
+        this.playerInteraction = listValue[GameModelToIndexRefEnum.playerInteraction];
+        this.publisher = listValue[GameModelToIndexRefEnum.publisher];
+        this.avgDuration = listValue[GameModelToIndexRefEnum.avgDuration];
+        this.firstPlaythroughDuration = listValue[GameModelToIndexRefEnum.firstPlaythroughDuration];
+
+    }
+
 }

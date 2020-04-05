@@ -1,0 +1,6 @@
+export enum BoardGameKind {
+    HIDDEN_MOVEMENT = 'HIDDEN MOVEMENT',
+    DECK_BUILDING = 'DECK BUILDING',
+    DRAFTING = 'DRAFTING',
+    PUZZLE = 'PUZZLE'
+}
