@@ -9,7 +9,7 @@ export class HomePage {
     return (
       <Host>
         <search-bar />
-        {/* <board-game-grid /> */}
+        <board-game-grid />
       </Host>
     );
   }
