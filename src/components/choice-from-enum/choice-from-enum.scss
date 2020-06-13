@@ -1,0 +1,8 @@
+:host {
+  display: block;
+}
+
+label + label::before {
+  content: "";
+  margin-left: 1em;
+}

@@ -1,6 +1,8 @@
-export enum BoardGameInteraction {
-    COOP = 'COOPERATIVE',
-    COMPETITIVE = 'COMPETITIVE',
-    TEAM = 'TEAM',
-    TRAITOR = 'TRAITOR'
+enum BoardGameInteraction {
+  COOP = 'Cooperative',
+  COMPETITIVE = 'Competitive',
+  TEAM = 'Team',
+  TRAITOR = 'Traitor',
 }
+
+export default BoardGameInteraction;
