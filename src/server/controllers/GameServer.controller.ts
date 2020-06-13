@@ -6,12 +6,14 @@ import { IGoogleSheetsAPI } from '../interfaces/IGoogleSheetsApi';
 import { ListValueFormat } from '../interfaces/ICreateGameRequestValueRange';
 import { ICreateGameRequest } from '../interfaces/ICreateGameRequest';
 import { ValueInputOption } from '../enums/ValueInputOptionEnum';
-import { ICreateGameResponseBody, ICreateGameResponse } from '../interfaces/ICreateGameResponse';
+import { ICreateGameResponse } from '../interfaces/ICreateGameResponse';
 import { IGetGamesResponse } from '../interfaces/IGetGamesResponse';
 import { BoardGame } from '../models/board_game';
 import { GameModelToIndexRefEnum } from '../enums/GameModelToIndexRefEnum';
 import { Generator } from '../common/generator';
 import { IBoardGame } from '../../contracts/interfaces/IBoardGame';
+import { IPostGameRequest } from '../../contracts/interfaces/request-interfaces/IPostGameRequest';
+import { ICreateGameResponseBody } from '../interfaces/ICreateGameResponseBody';
 
 @Controller('api/games')
 export class GameController {
@@ -25,7 +27,7 @@ export class GameController {
     }
 
     @Post()
-    private async _createGame(req: Request, res: Response) {
+    private async _createGame(req: IPostGameRequest, res: Response) {
 
         const boardGame: IBoardGame = req.body;
 
