@@ -1,5 +1,5 @@
 import { DimensionEnum } from '../enums/DimensionEnum';
-import { ListValueFormat } from './ICreateGameRequestValueRange';
+import { ListValueFormat } from './IAppendDataRequestValueRange';
 
 export interface IGetGamesResponse {
     data: IGetGamesResponseBody;

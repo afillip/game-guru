@@ -1,4 +1,4 @@
-export interface ICreateGameResponseBody {
+export interface IAppendDataResponseBody {
     spreadsheetId: string,
     tableRange: string,
     updates: IUpdateValuesResponse

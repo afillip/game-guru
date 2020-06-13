@@ -3,17 +3,17 @@ import { Logger } from '@overnightjs/logger';
 import { Request, Response } from 'express';
 import { GoogleSheetAPIAuth } from '../models/google_sheets_api';
 import { IGoogleSheetsAPI } from '../interfaces/IGoogleSheetsApi';
-import { ListValueFormat } from '../interfaces/ICreateGameRequestValueRange';
-import { ICreateGameRequest } from '../interfaces/ICreateGameRequest';
+import { ListValueFormat } from '../interfaces/IAppendDataRequestValueRange';
 import { ValueInputOption } from '../enums/ValueInputOptionEnum';
-import { ICreateGameResponse } from '../interfaces/ICreateGameResponse';
 import { IGetGamesResponse } from '../interfaces/IGetGamesResponse';
 import { BoardGame } from '../models/board_game';
 import { GameModelToIndexRefEnum } from '../enums/GameModelToIndexRefEnum';
 import { Generator } from '../common/generator';
 import { IBoardGame } from '../../contracts/interfaces/IBoardGame';
-import { IPostGameRequest } from '../../contracts/interfaces/request-interfaces/IPostGameRequest';
-import { ICreateGameResponseBody } from '../interfaces/ICreateGameResponseBody';
+import { ICreateGameRequest } from '../interfaces/requests/ICreateGameRequest';
+import { IAppendDataRequest } from '../interfaces/IAppendDataRequest';
+import { IAppendDataResponse } from '../interfaces/IAppendDataResponse';
+import { ICreateGameResponse } from '../interfaces/responses/ICreateGameResponse';
 
 @Controller('api/games')
 export class GameController {
@@ -27,13 +27,13 @@ export class GameController {
     }
 
     @Post()
-    private async _createGame(req: IPostGameRequest, res: Response) {
+    private async _createGame(req: ICreateGameRequest, res: Response) {
 
         const boardGame: IBoardGame = req.body;
 
         const values: ListValueFormat = [this._hydrateListValueArrayFromBoardGame(boardGame)];
 
-        const request: ICreateGameRequest = {
+        const request: IAppendDataRequest = {
             spreadsheetId: this.googleSheetsApi.spreadsheetId,
             range: this._GAME_DATA_RANGE,
             resource: { values },
@@ -41,10 +41,10 @@ export class GameController {
         };
 
         try {
-            const response: ICreateGameResponse = await this.googleSheetsApi.sheetsAccess.spreadsheets.values.append(request)
+            const response: IAppendDataResponse = await this.googleSheetsApi.sheetsAccess.spreadsheets.values.append(request)
             
             if (response.status === 200) {
-                const responseBody: ICreateGameResponseBody = response.data;
+                const responseBody: ICreateGameResponse = response.data;
                 console.log(responseBody);
                 res.status(200).send(responseBody);
             } else {

@@ -1,6 +1,6 @@
 import { DimensionEnum } from '../enums/DimensionEnum';
 
-export interface ICreateGameRequestValueRange {
+export interface IAppendDataRequestValueRange {
     values: ListValueFormat;
     range?: string;
     majorDimension?: DimensionEnum;
