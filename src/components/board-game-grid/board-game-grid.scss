@@ -1,31 +1,31 @@
-:host {
+board-game-grid {
   $dim: 600px;
   border: 3px solid black;
   display: grid;
   grid:
-   ". show show show ."
-   "big-left big-left . big-right big-right"
-   ". . . . ."
-   ". . . . ."
-   ". . . . .";
+    '. show show show .'
+    'big-left big-left . big-right big-right'
+    '. . . . .'
+    '. . . . .'
+    '. . . . .';
   margin: 0 auto;
   height: $dim;
   width: $dim;
-  
+
   .cell {
     border: 3px solid #222;
     box-sizing: content-box;
     // height: 100px;
     // width: 100px;
-    
+
     &.showcase {
       grid-area: show;
     }
-    
+
     &.big-left {
       grid-area: big-left;
     }
-    
+
     &.big-right {
       grid-area: big-right;
     }
