@@ -1,0 +1,53 @@
+create-game {
+  font-size: 1.5rem;
+
+  h3 {
+    color: mediumvioletred;
+  }
+
+  form {
+    display: grid;
+    grid-auto-columns: 1fr 1fr;
+    align-items: stretch;
+    // grid-auto-rows: auto;
+    row-gap: 1em;
+    column-gap: 1em;
+
+    choice-from-enum,
+    two-way-input.textarea {
+      grid-column: 1 / 3;
+
+      // textarea {
+      //   width: 100%;
+      // }
+    }
+
+    > * {
+      $label-size: 300px;
+
+      // display: flex;
+      // align-items: center;
+      // padding: 0.5em 1em;
+      // padding-left: 0;
+
+      &::before {
+        content: attr(data-label);
+        color: gray;
+        display: block;
+        font-size: 1rem;
+        margin-top: 0.75em;
+        width: calc(#{$label-size} - 2em);
+        padding-bottom: 0.25em;
+        // text-align: right;
+      }
+
+      // &:nth-child(2n - 1) {
+      //   background-color: snow;
+      // }
+    }
+
+    // > * + * {
+    //   margin-top: 0.75rem;
+    // }
+  }
+}

@@ -1,13 +1,13 @@
-@import "../../global/variables";
+@import '../../global/variables';
 
 :host {
-    display: block;
-    margin: 0 auto;
-    max-width: 1000px;
-    padding: 1.5rem;
-    font: 16px/1 "Open Sans", Tahoma, Arial, Helvetica, sans-serif;
+  display: block;
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 1.5rem;
+  font: 16px/1 'Open Sans', Tahoma, Arial, Helvetica, sans-serif;
 }
 
 header {
-    text-align: center;
+  text-align: center;
 }

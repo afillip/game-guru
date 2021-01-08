@@ -19,26 +19,18 @@ export interface IBoardGame {
   /**
    * This will reference whether or not the game contains expansions
    * if it does, those references will be in another table
-   * @type {boolean}
-   * @memberof IBoardGame
    */
   expansion: boolean;
 
   /**
    *
    * number of minutes a typical playthrough would take
-   * @type {number}
-   * @memberof BoardGame
    */
   avgDuration: number;
 
   /**
    *
    * number of minutes it would take new players to play through game
-   * @type {number}
-   * @memberof BoardGame
    */
   firstPlaythroughDuration: number;
-
-  hydrateFromListValueArray(listValue: any[]);
 }

@@ -1,0 +1,32 @@
+@keyframes amanda-is-loco {
+  from {
+    transform: rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes party-mode {
+  $scale: 100/7;
+  $colors: (red, orange, yellow, green, blue, indigo, purple, red);
+  @for $i from 0 through 7 {
+    #{ceil($scale * $i)}#{'%'} {
+      border-color: nth($colors, $i + 1);
+    }
+  }
+}
+
+two-way-input {
+  // animation: amanda-is-loco 2s linear infinite;
+
+  input,
+  textarea {
+    -webkit-appearance: none;
+    font-size: inherit;
+    width: 100%;
+
+    animation: party-mode 2s linear infinite;
+  }
+}

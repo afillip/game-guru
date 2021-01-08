@@ -4,11 +4,10 @@ import { EnumType } from '../../contracts/enums';
 @Component({
   tag: 'choice-from-enum',
   styleUrl: 'choice-from-enum.scss',
-  shadow: true
 })
 export class ChoiceFromEnum {
   @Prop()
-  enum: EnumType;
+  enum!: EnumType;
 
   @Prop()
   legend: string;
@@ -16,22 +15,22 @@ export class ChoiceFromEnum {
   @Prop()
   formField: string;
 
-  // connectedCallback() {
-  //   console.log(typeof this.enum, this.enum);
-  // }
-
-  render() {
-    return (
-      <fieldset>
-        <legend>{this.legend}</legend>
-        {Object.values(this.enum).map(entry => (
-          <label>
-            <input type="checkbox" name={this.formField} value={entry} />{' '}
-            {entry}
-          </label>
-        ))}
-      </fieldset>
-    );
+  checkboxesFromEnum() {
+    return Object.values(this.enum).map((entry) => (
+      <label>
+        <input type="checkbox" name={this.formField} value={entry} /> {entry}
+      </label>
+    ));
   }
 
+  render() {
+    return this.legend ? (
+      <fieldset>
+        <legend>{this.legend}</legend>
+        {this.checkboxesFromEnum()}
+      </fieldset>
+    ) : (
+      this.checkboxesFromEnum()
+    );
+  }
 }

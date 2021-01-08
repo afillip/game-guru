@@ -1,8 +1,8 @@
-:host {
+choice-from-enum {
   display: block;
 }
 
 label + label::before {
-  content: "";
+  content: '';
   margin-left: 1em;
 }
